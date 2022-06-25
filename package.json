@@ -6,10 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pretty": "prettier --write ./pages/* ./pages/**/* --ignore-unknown",
+    "prettier-watch": "onchange \"./pages/*\" \"./pages/**/*\" -- prettier --write --ignore-unknown {{changed}}"
   },
   "dependencies": {
     "next": "12.1.6",
+    "onchange": "^7.1.0",
+    "prettier": "^2.7.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },

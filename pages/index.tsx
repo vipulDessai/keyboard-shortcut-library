@@ -1,8 +1,24 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import Script from 'next/script';
+
+import styles from '../styles/Home.module.scss';
+import KeyboardShortcut from './components/KeyboardShortcutLibrary/KeyboardShortcut';
 
 const Home: NextPage = () => {
+  const turnGreen = () => {
+    console.log("i'm green");
+  };
+  const turnYellow = () => {
+    console.log("i'm yellow");
+  };
+  const turnPink = () => {
+    console.log("i'm pink");
+  };
+  const turnGrey = () => {
+    console.log("i'm Grey");
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -11,9 +27,33 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}></main>
+      <main className={styles.main}>
+        <KeyboardShortcut
+          combo="shift s"
+          description="green"
+          callback={turnGreen}
+        />
+        <KeyboardShortcut
+          combo="shift a"
+          description="yellow"
+          callback={turnYellow}
+        />
+        <KeyboardShortcut
+          combo="shift w"
+          description="pink"
+          callback={turnPink}
+        />
+        <KeyboardShortcut
+          combo="shift s"
+          description="grey"
+          callback={turnGrey}
+        />
+      </main>
 
       <footer className={styles.footer}></footer>
+      <Script
+        src="https://cdn.jsdelivr.net/gh/dmauro/Keypress@master/keypress.js"
+        strategy="beforeInteractive"></Script>
     </div>
   );
 };

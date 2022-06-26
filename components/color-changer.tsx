@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import styles from '../../styles/Home.module.scss';
+import styles from '../styles/Home.module.scss';
 
-import KeyboardShortcut from './KeyboardShortcutLibrary/KeyboardShortcut';
+import KeyboardShortcut from '../plugin/KeyboardShortcutLibrary/KeyboardShortcut';
 
 interface ColorChangerType {
   name: string;

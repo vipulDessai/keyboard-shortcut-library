@@ -2,12 +2,13 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Script from 'next/script';
 
-import styles from '../styles/Home.module.scss';
-import ColorChanger from './components/color-changer';
-import Help from './components/help';
+// custom plugin
+import { KeyboardShortcutStoreProvider } from '../plugin/KeyboardShortcutLibrary/keyboardShortcut.store';
 
-import KeyboardShortcut from './components/KeyboardShortcutLibrary/KeyboardShortcut';
-import { KeyboardShortcutStoreProvider } from './components/KeyboardShortcutLibrary/keyboardShortcut.store';
+import styles from '../styles/Home.module.scss';
+
+import ColorChanger from '../components/color-changer';
+import Help from '../components/help';
 
 const Home: NextPage = () => {
   return (

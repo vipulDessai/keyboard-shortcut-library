@@ -5,6 +5,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
+npm install
+# or
+yarn install
+
 npm run dev
 # or
 yarn dev
@@ -12,12 +16,10 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
 ## KeyboardShortcut component usage
 ```tsx
 // import the KeyboardShortcut
-import KeyboardShortcut from './components/KeyboardShortcutLibrary/KeyboardShortcut';
+import KeyboardShortcut from '../plugin/KeyboardShortcutLibrary/KeyboardShortcut';
 
 // and in the render part of the function, 
 // provide 3 arguments 
@@ -31,9 +33,14 @@ import KeyboardShortcut from './components/KeyboardShortcutLibrary/KeyboardShort
 />
 ```
 
-## derive list of active keys
-- to set and get all the combos and descriptions, wrap the `KeyboardShortcut` with `KeyboardShortcutStoreProvider`
+## Derive list of active keys
+To set and get all the combos and descriptions, wrap the `KeyboardShortcut` with `KeyboardShortcutStoreProvider`
 ```tsx
+// import custom plugin 
+import { KeyboardShortcutStoreProvider } from '../plugin/KeyboardShortcutLibrary/keyboardShortcut.store';
+
+import Help from '../components/help';
+
 <KeyboardShortcutStoreProvider>
   <KeyboardShortcut
     combo="shift s"
@@ -49,7 +56,7 @@ import KeyboardShortcut from './components/KeyboardShortcutLibrary/KeyboardShort
 </KeyboardShortcutStoreProvider>
 ```
 
-- to get the list in a component declared in the context (ex. Help)
+To get the list of active key combs in any component declared within the `KeyboardShortcutStoreProvider` context (ex. Help component)
 ```tsx
 import { KeyboardShortcutStore } from './KeyboardShortcutLibrary/keyboardShortcut.store';
 

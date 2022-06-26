@@ -1,4 +1,4 @@
-import { KeyboardShortcutStore } from './KeyboardShortcutLibrary/keyboardShortcut.store';
+import { KeyboardShortcutStore } from '../plugin/KeyboardShortcutLibrary/keyboardShortcut.store';
 
 function Help() {
   const { activeKeyboardShortcutList } = KeyboardShortcutStore();

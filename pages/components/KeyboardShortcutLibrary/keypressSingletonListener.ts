@@ -7,7 +7,7 @@ const keyComboGroupedCallbacks: KeyComboGroupedCallbacksType = {};
 let globalListenerInstance: any = null;
 
 export const keypressJsListener = {
-  register: (combo: string, description: string, callback: CallbacksType) => {
+  register: (combo: string, callback: CallbacksType) => {
     if (!globalListenerInstance) {
       globalListenerInstance = new keypress.Listener();
     }

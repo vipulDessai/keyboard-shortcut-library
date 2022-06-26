@@ -7,8 +7,11 @@ function Help() {
     <section>
       <p>{`The list of all the keyboard shortcuts`}</p>
       <ul>
-        {activeKeyboardShortcutList.map((keyboardShortcut) => (
-          <li>{`"${keyboardShortcut[0]}" : "${keyboardShortcut[1]}"`}</li>
+        {activeKeyboardShortcutList.map((keyboardShortcut, index) => (
+          <li
+            key={
+              index
+            }>{`"${keyboardShortcut[0]}" : "${keyboardShortcut[1]}"`}</li>
         ))}
       </ul>
     </section>

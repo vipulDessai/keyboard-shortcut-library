@@ -3,25 +3,13 @@ import Head from 'next/head';
 import Script from 'next/script';
 
 import styles from '../styles/Home.module.scss';
+import ColorChanger from './components/color-changer';
 import Help from './components/help';
 
 import KeyboardShortcut from './components/KeyboardShortcutLibrary/KeyboardShortcut';
 import { KeyboardShortcutStoreProvider } from './components/KeyboardShortcutLibrary/keyboardShortcut.store';
 
 const Home: NextPage = () => {
-  const turnGreen = () => {
-    console.log("i'm green");
-  };
-  const turnYellow = () => {
-    console.log("i'm yellow");
-  };
-  const turnPink = () => {
-    console.log("i'm pink");
-  };
-  const turnGrey = () => {
-    console.log("i'm Grey");
-  };
-
   return (
     <div className={styles.container}>
       <Head>
@@ -29,25 +17,29 @@ const Home: NextPage = () => {
       </Head>
       <main className={styles.main}>
         <KeyboardShortcutStoreProvider>
-          <KeyboardShortcut
+          <ColorChanger
+            name="A"
             combo="shift s"
             description="green"
-            callback={turnGreen}
+            colors={['#C06C84', '#355C7D']}
           />
-          <KeyboardShortcut
+          <ColorChanger
+            name="B"
             combo="shift a"
             description="yellow"
-            callback={turnYellow}
+            colors={['#A8E6CE', '#FF8C94']}
           />
-          <KeyboardShortcut
+          <ColorChanger
+            name="C"
             combo="shift w"
             description="pink"
-            callback={turnPink}
+            colors={['#CC527A', '#363636']}
           />
-          <KeyboardShortcut
+          <ColorChanger
+            name="D"
             combo="shift s"
             description="grey"
-            callback={turnGrey}
+            colors={['#2F9599', '#F9D423']}
           />
           <Help></Help>
         </KeyboardShortcutStoreProvider>

@@ -16,9 +16,10 @@ const KeyboardShortcut = ({
 }: KeyboardShortcutType) => {
   const { setActiveKeyboardShortcutList } = KeyboardShortcutStore();
 
+  // the context maintaining all the active keys
+  // should be only modified when the combo, description changes
+  // setActiveKeyboardShortcutList is optional and will never change
   useEffect(() => {
-    keypressJsListener.register(combo, description, callback);
-
     if (setActiveKeyboardShortcutList) {
       setActiveKeyboardShortcutList((activeKeyboardShortcutList) => [
         ...activeKeyboardShortcutList,
@@ -27,8 +28,6 @@ const KeyboardShortcut = ({
     }
 
     return () => {
-      keypressJsListener.deregister(combo, callback);
-
       if (setActiveKeyboardShortcutList) {
         setActiveKeyboardShortcutList((activeKeyboardShortcutList) => {
           const shortcutList = [...activeKeyboardShortcutList];
@@ -43,7 +42,15 @@ const KeyboardShortcut = ({
         });
       }
     };
-  }, []);
+  }, [combo, description, setActiveKeyboardShortcutList]);
+
+  // register/deregister in keypress.js is only based on combo and callback
+  useEffect(() => {
+    keypressJsListener.register(combo, callback);
+    return () => {
+      keypressJsListener.deregister(combo, callback);
+    };
+  }, [combo, callback]);
 
   return null;
 };

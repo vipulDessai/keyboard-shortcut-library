@@ -16,6 +16,8 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+Or you can visit the [live link](https://keyboard-shortcut-library.vercel.app/).
+
 ## KeyboardShortcut component usage
 ```tsx
 // import the KeyboardShortcut

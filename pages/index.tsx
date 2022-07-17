@@ -1,6 +1,5 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Script from 'next/script';
 
 // custom plugin
 import { KeyboardShortcutStoreProvider } from '../plugin/KeyboardShortcutLibrary/keyboardShortcut.store';
@@ -16,6 +15,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Colors</title>
       </Head>
+
       <main className={styles.main}>
         <KeyboardShortcutStoreProvider>
           <ColorChanger
@@ -46,11 +46,7 @@ const Home: NextPage = () => {
         </KeyboardShortcutStoreProvider>
       </main>
 
-      <footer className={styles.footer}>
-        <Script
-          src="https://cdn.jsdelivr.net/gh/dmauro/Keypress@master/keypress.js"
-          strategy="beforeInteractive"></Script>
-      </footer>
+      <footer className={styles.footer}></footer>
     </div>
   );
 };
